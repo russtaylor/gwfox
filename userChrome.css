@@ -5,9 +5,9 @@
   ║║╚╗║ ║║║║║║ ║╔═╝ ║║║║   ║╔╗║
   ║╚═╝║ ║╚╝╚╝║ ║║   ║╚╝║ ╔═╝║║╚═╗
   ╚═══╝ ╚═╝╚═╝ ╚╝   ╚══╝ ╚══╝╚══╝
-  
+
   https://github.com/akkva/gwfox
-  
+
   ############################## */
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
@@ -684,7 +684,7 @@ split-view-footer {
 .urlbarView-row-inner {
   flex-wrap: nowrap !important;
 }
-  
+
 .urlbarView-no-wrap {
   max-width: 50% !important;
   flex-basis: 0 !important;
@@ -1661,7 +1661,7 @@ tab-group & {
 }
 }
 }
-  
+
 /* popup */
 
 menupopup, panel[type="arrow"] {
@@ -2151,7 +2151,7 @@ richlistbox {
   border-radius: 5px !important;
   margin: 5px !important;
   background-color: light-dark(#eee, #343436) !important;
-@media -moz-pref("gwfox.blur") {  
+@media -moz-pref("gwfox.blur") {
   background-color: light-dark(rgba(238, 238, 238, .75), rgba(52, 52, 54, .75)) !important;
 }
   backdrop-filter: var(--bf3) !important;
@@ -2500,7 +2500,7 @@ input[type="search"] {
   outline: none !important;
 }
 
-#searchbar, 
+#searchbar,
 xul|search-textbox,
 input[type="search"],
 [type="text"] {
@@ -3382,7 +3382,7 @@ tab-split-view-wrapper {
   margin-left: 6px;
 }
 
-#tabbrowser-tabs[orient="vertical"]:not([expanded]) .tab-close-button, 
+#tabbrowser-tabs[orient="vertical"]:not([expanded]) .tab-close-button,
 .tabbrowser-tab[pinned] .tab-close-button {
   display: none !important;
 }
@@ -4830,7 +4830,7 @@ tab-split-view-wrapper & {
 }
 }
 
-:root:not([sizemode="maximized"], [sizemode="fullscreen"]):has(#sidebar-main[hidden]) .titlebar-restore, 
+:root:not([sizemode="maximized"], [sizemode="fullscreen"]):has(#sidebar-main[hidden]) .titlebar-restore,
 :root:is([sizemode="maximized"], [sizemode="fullscreen"]):has(#sidebar-main[hidden]) .titlebar-max {
   display: none !important;
 }
