@@ -1286,6 +1286,7 @@ tab-group > .tabbrowser-tab {
 
 .tab-background[selected] {
   background: light-dark(rgba(70, 70, 70, .18), rgba(170, 170, 170, .4)) !important;
+  outline: 1px solid rgba(235, 235, 235, .8) !important;
 }
 
 .tabbrowser-tab:hover .tab-background {
