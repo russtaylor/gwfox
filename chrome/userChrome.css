@@ -1240,6 +1240,10 @@ tab-group[collapsed] > .tabbrowser-tab[visuallyselected] > .tab-stack > & {
   margin: 0 1px !important;
 }
 
+tab-group > tab > .tab-stack {
+  margin-left: 10px !important;
+}
+
 .tab-label {
   font-size: 13px !important;
   margin-bottom: 1px !important;
