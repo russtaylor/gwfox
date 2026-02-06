@@ -1240,6 +1240,7 @@ split-view-footer {
 }
 &[selected] {
   background: light-dark(rgba(70, 70, 70, .18), rgba(170, 170, 170, .4)) !important;
+  outline: 1px solid rgba(235, 235, 235, .8) !important;
 }
 tab-split-view-wrapper & {
   background: color-mix(in srgb, var(--bg0) 18%, transparent) !important;
@@ -1317,6 +1318,7 @@ tab-group > .tabbrowser-tab {
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
   display: flex !important;
 }
+
 
 .tab-icon-overlay {
   scale: .7;
