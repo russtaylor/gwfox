@@ -693,7 +693,7 @@ body {
 }
 }
 
-.modal, .contentSearchSuggestionTable, .confirmation-dialog {
+.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .confirmation-dialog {
   box-shadow: var(--bs1) !important;
 }
 
@@ -820,21 +820,21 @@ body {
 
 @media (prefers-color-scheme: dark) {
 @media not (-moz-platform: linux) {
-.modal, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
+.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   box-shadow: var(--bs2) !important;
   outline: 1px solid rgba(235, 235, 235, .2) !important;
   outline-offset: -1.5px !important;
 }
 
 @media (-moz-platform: windows) {
-.modal, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
+.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   outline: none !important;
 }
 }
 }
 
 @media (-moz-platform: linux) {
-.modal, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
+.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   border: 1px solid rgba(255, 255, 255, .06) !important;
 }
 }
