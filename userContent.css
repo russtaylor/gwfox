@@ -834,7 +834,7 @@ body {
 }
 
 @media (-moz-platform: linux) {
-.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
+.modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   border: 1px solid rgba(255, 255, 255, .06) !important;
 }
 }
