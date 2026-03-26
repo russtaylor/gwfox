@@ -342,8 +342,8 @@ body {
   fill: #b9b9b9 !important;
 }
 
-.info, .promo-visible {
-  display: none;
+.info, .info-border, .promo-visible, .promo-dismiss {
+  display: none !important;
 }
 
 @media (-moz-platform: windows) {
