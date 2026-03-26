@@ -240,8 +240,14 @@ split-view-footer {
   z-index: unset !important;
 }
 
+#browser {
+  will-change: background-color;
+  transition: background-color var(--inactive-window-transition);
+}
+
 .browser-toolbar {
   border: none !important;
+  background-color: transparent !important;
 }
 
 .browser-titlebar {
@@ -258,6 +264,10 @@ split-view-footer {
 &:not([customizing]) toolbarspring:not(#vertical-spacer) {
   min-width: 12.5px !important;
 }
+}
+
+#TabsToolbar:-moz-window-inactive {
+  opacity: 1 !important;
 }
 
 @media not -moz-pref("gwfox.atbc") {
@@ -337,7 +347,7 @@ split-view-footer {
 }
 
 #PersonalToolbar {
-height: 28px !important;
+  height: 28px !important;
 }
 
 .webextension-browser-action,
@@ -1343,6 +1353,7 @@ tab-group > .tabbrowser-tab {
 
 .tab-note-icon {
   margin-inline-end: -5px !important;
+  fill: light-dark(#525252, #c9c9cb) !important;
 @media -moz-pref("gwfox.plus_sc") {
   margin-inline-end: 20px !important;
 @media -moz-pref("sidebar.verticalTabs") {
@@ -1373,7 +1384,6 @@ tab-split-view-wrapper & {
   backdrop-filter: var(--bf3);
   border: none !important;
 &:hover {
-  scale: .9;
   background: light-dark(color-mix(in srgb, var(--button-hover-bgcolor) 20%, #fff), color-mix(in srgb, var(--button-hover-bgcolor) 80%, #555)) !important;
 }
 &:active {
@@ -1382,7 +1392,8 @@ tab-split-view-wrapper & {
 }
 
 #tab-note-preview-panel {
-  --tab-note-text-background: transparent !important;    
+  --tab-note-text-background: transparent !important;
+  pointer-events: none;
 }
 
 #tab-preview-panel {
@@ -2635,7 +2646,23 @@ richlistitem {
 @media not -moz-pref("gwfox.atbc") {
 #browser, #navigator-toolbox {
   background: var(--bg1) !important;
+&:-moz-window-inactive {
+   background: light-dark(#edefef, #232326) !important;
 }
+}
+}
+
+@media -moz-pref("gwfox.atbc") {
+#browser, #navigator-toolbox {
+&:-moz-window-inactive {
+  background-color: var(--toolbox-bgcolor-inactive) !important;
+} 
+}
+}
+
+.toolbarbutton-1:-moz-window-inactive,
+#PersonalToolbar:-moz-window-inactive {
+  opacity: .65;
 }
 
 #context-navigation .menu-icon {
@@ -2664,6 +2691,15 @@ menupopup, panel[type="arrow"] {
 
 #tab-preview-panel {
   pointer-events: none;
+[data-l10n-id="tab-context-add-note"] {
+  display: none;
+}
+}
+
+menubar > menu {
+&[open] {
+  border-bottom-color: transparent !important;
+}
 }
 
 menupopup {
