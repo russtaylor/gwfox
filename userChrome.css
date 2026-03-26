@@ -4837,7 +4837,7 @@ tab-split-view-wrapper & {
 }
 }
 }
-:has(.toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #sidebar-button, #tabs-newtab-button, #vertical-tabs-newtab-button):is(:hover, [open]))&:has([sidebar-shown]) #tabbrowser-tabbox {
+:has(#navbar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #sidebar-button, #tabs-newtab-button, #vertical-tabs-newtab-button):is(:hover, [open]))&:has([sidebar-shown]) #tabbrowser-tabbox {
   margin-top: 0 !important;
 .browserStack {
   margin-top: -39px;
