@@ -4197,6 +4197,9 @@ tab-split-view-wrapper & {
 }
 @media not -moz-pref("gwfox.plus_sc") {
   margin-inline-end: -13px !important;
+tab-split-view-wrapper & {
+  margin-inline-end: -5px !important;
+}
 @media (-moz-platform: linux) {
   margin-inline-end: -16px !important;
 tab-split-view-wrapper & {
