@@ -1229,6 +1229,23 @@ split-view-footer {
   outline: none !important;
   box-shadow: none !important;
   border-radius: var(--br1) !important;
+  background: var(--button-hover-bgcolor) !important;
+  transition: background .5s !important;
+.tabbrowser-tab:hover & {
+  background: var(--button-active-bgcolor) !important;
+}
+&[selected] {
+  background: light-dark(rgba(70, 70, 70, .18), rgba(170, 170, 170, .4)) !important;
+}
+tab-split-view-wrapper & {
+  background: color-mix(in srgb, var(--bg0) 18%, transparent) !important;
+.tabbrowser-tab:hover & {
+  background: color-mix(in srgb, var(--bg0) 24%, transparent) !important;
+}
+&[selected] {
+  background: color-mix(in srgb, var(--bg0) 26%, transparent) !important;
+}
+}
 #tabbrowser-tabs[movingtab-group] & {
  &[dragover-groupTarget] {
   background-color: color-mix(in srgb, var(--dragover-tab-group-color) 38%, transparent) !important;
@@ -1239,15 +1256,15 @@ split-view-footer {
 }
 }
 tab-group:not([collapsed]) > tab > .tab-stack > & {
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 14%, transparent) !important;
+  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 18%, transparent) !important;
 tab:not([selected]):hover & {
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 21%, transparent) !important;
+  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
 }
 }
 &[selected] {
 tab-group:not([collapsed]) > tab > .tab-stack > &,
 tab-group[collapsed] > .tabbrowser-tab[visuallyselected] > .tab-stack > & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 26%, transparent) !important;
 }
 }
 }
@@ -1293,20 +1310,6 @@ tab-group > .tabbrowser-tab {
 
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
   display: flex !important;
-}
-
-.tab-background:not([selected]) {
-  background: var(--button-hover-bgcolor) !important;
-  transition: background .5s !important;
-}
-
-.tab-background[selected] {
-  background: light-dark(rgba(70, 70, 70, .18), rgba(170, 170, 170, .4)) !important;
-}
-
-.tabbrowser-tab:hover .tab-background {
-  background: var(--button-active-bgcolor) !important;
-  transition: background .5s !important;
 }
 
 .tab-icon-overlay {
@@ -1599,42 +1602,25 @@ tab-split-view-wrapper {
 tab-group & {
 .tab-background {
 .tabbrowser-tab:hover & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 21%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
 }
 .tabbrowser-tab[selected]:hover & {
   background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
 }
 &[selected] {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 26%, transparent) !important;
 }
 }
 }
 &:not([hasactivetab]) {
 .tabbrowser-tab {
-&:not(:hover) {
-  border-image: linear-gradient( to bottom, transparent 30%, rgba(155, 155, 155, .3) 30%, rgba(155, 155, 155, .3) 70%, transparent 70%) 1 !important;
-}
-tab-group & {
-  border-image: none !important;
-}
-&:first-child {
-  border-block-end: none !important;
-}
-&:last-child {
-&:hover {
-  border-inline-start: none !important;
-}
-tab-group & {
-  border-inline-start: none !important;
-}
-}
+  border: none !important;
 }
 }
 &[hasactivetab] {
 .tab-background:not([selected]) {
-  background: var(--button-bgcolor) !important;
 tab-group & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 14%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 18%, transparent) !important;
 }
 }
 }
@@ -1650,7 +1636,7 @@ tab-group & {
 tab-group & {
 .tab-background {
 .tabbrowser-tab:hover & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 21%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
 }
 .tabbrowser-tab[selected]:hover & {
   background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
@@ -1658,7 +1644,7 @@ tab-group & {
 }
 &:not([hasactivetab]) {
 .tab-background {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 14%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 18%, transparent) !important;
 }
 }
 }
@@ -2991,9 +2977,12 @@ img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [src="ch
 
 .tabbrowser-tab:not([selected], [pinned], :hover) .tab-background {
   background: transparent !important;
+tab-split-view-wrapper & {
+  background: color-mix(in srgb, var(--bg0) 18%, transparent) !important;
+}
 tab-group > tab-split-view-wrapper & {
 &:not([hasactivetab]) {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 14%, transparent) !important;
+  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 18%, transparent) !important;
 }
 }
 }
