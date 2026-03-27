@@ -262,6 +262,15 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
 @-moz-document url-prefix("about:opentabs") {
 :root { background: transparent !important; }
 .sticky-header { background: transparent !important; }
+sidebar-tab-row {
+&:is(:hover, :active) {
+  background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
+@media -moz-pref("gwfox.ac") {
+  background-color: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
+  color: #fff !important;
+}
+}
+}
 }
 
 @-moz-document url-prefix("about:firefoxview") {
