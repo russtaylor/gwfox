@@ -18,6 +18,7 @@
   --bg2: light-dark(#fff, #454545);
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
   --bg4: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 12, .75));
+  --bg5: color-mix(in srgb, var(--bg0), transparent 75%);
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), 0 0 0 .5px rgba(0, 0, 0, .15);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --br1: 6px;
@@ -73,7 +74,6 @@
   --toolbar-bgcolor: var(--toolbox-bgcolor) !important;
   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 10%, transparent) !important;
   --toolbarbutton-active-background: color-mix(in srgb, currentColor 15%, transparent) !important;
-  :not(:-moz-window-inactive) {::selection {background:color-mix(in srgb, var(--bg0), transparent 75%) !important;}}
   @media -moz-pref("gwfox.ac") {
   --urlbarView-result-button-hover-color: rgba(255, 255, 255, .8) !important;
   --urlbarView-result-button-hover-background-color: rgba(195, 195, 195, .2) !important;
@@ -99,6 +99,9 @@
   --bg1: light-dark(rgba(245, 245, 246, .76), rgba(40, 40, 44, .76));
   }
   }
+:-moz-window-inactive {
+  --bg5: color-mix(in srgb, #777, transparent 75%);
+}
 }
 
 :root[macOSNativeFullscreen] #navigator-toolbox {
@@ -611,6 +614,7 @@ split-view-footer {
 }
 
 ::selection {
+  background: var(--bg5) !important;
   color: inherit !important;
 }
 
@@ -653,6 +657,7 @@ split-view-footer {
 }
 }
 
+#urlbar:not([breakout][breakout-extend]) #trust-label,
 #urlbar:not([breakout][breakout-extend]) #identity-icon-label {
   display: none !important;
 }
@@ -811,6 +816,14 @@ split-view-footer {
 @media (prefers-color-scheme: dark) {
 @media not (-moz-platform: linux) {
   box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}
+@media (-moz-platform: windows) {
+  outline: none !important;
+}
+@media (-moz-platform: linux) {
+  border: 1px solid rgba(255, 255, 255, .06) !important;
 }
 }
 }
@@ -931,12 +944,14 @@ split-view-footer {
   opacity: 0;
 }
 
+#identity-box[pageproxystate="valid"].chromeUI,
 #identity-permission-box, #notification-popup-box, #trust-icon-container {
   margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
   opacity: 0;
 }
 
 #urlbar:not([breakout][breakout-extend]) {
+#identity-box[pageproxystate="valid"].chromeUI,
 .urlbar-page-action, #identity-permission-box, #notification-popup-box, #trust-icon-container {
   transition: .2s;
 }
@@ -967,6 +982,9 @@ split-view-footer {
 #urlbar[open] #notification-popup-box,
 #urlbar:hover #identity-permission-box,
 #urlbar:hover #notification-popup-box,
+#urlbar[open] #identity-box[pageproxystate="valid"].chromeUI,
+#urlbar:hover #identity-box[pageproxystate="valid"].chromeUI,
+:has(.identity-box-button[open]) #identity-box[pageproxystate="valid"].chromeUI,
 #identity-permission-box[open],
 #notification-popup-box[open] {
   opacity: 1;
