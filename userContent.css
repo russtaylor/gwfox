@@ -15,15 +15,15 @@
   --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
   --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
   --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
-  --bg4: light-dark(rgba(255, 255, 255, .7), rgba(15, 15, 15, .7));
-  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
-  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
+  --bg4: light-dark(#fff, #141618);
+  --bg5: light-dark(#fafafa, #1e2022);
+  --bg6: light-dark(#f5f5f5, #282a2c);
   --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), 0 0 0 .5px rgba(0, 0, 0, .15);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
-  --bf1: blur(0);
-  --bf2: blur(15px);
-  --bf3: blur(30px);
+  --bf1: none;
+  --bf2: none;
+  --bf3: none;
   --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --border-color-interactive: var(--in-content-box-border-color) !important;
   --newtab-background-color-secondary: transparent !important;
@@ -50,9 +50,18 @@
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
   --newtab-background-color: var(--toolbox-bgcolor) !important;
+  @media -moz-pref("gwfox.blur") {
+  --bf2: blur(15px);
+  --bf3: blur(30px);
+  --bg4: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 12, .75));
+  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
+  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
+  @media (-moz-mac-tahoe-theme) {
+  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
+  }    
+  }
   @media (-moz-mac-tahoe-theme) {
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
-  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
   }
   @media (-moz-platform: windows) {
   --bs1: 0 45px 65px rgba(0, 0, 0, .35), 0 0 0 1px rgba(0, 0, 0, .17);
@@ -318,7 +327,7 @@ body {
   fill: rgba(255, 255, 255, .7) !important;
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
-  background-color: #36363a !important;
+  background-color: #141618 !important;
   backdrop-filter: var(--bf1) !important;
 }
 }
@@ -450,26 +459,10 @@ body {
 }
 
 .search-inner-wrapper {
-  background-color: light-dark(rgba(255, 255, 255, .8), rgba(15, 15, 15, .7)) !important;
   border-radius: 12px !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
   transition: background .5s !important;
   z-index: 1;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: light-dark(#fff, #36363a) !important;
-}
-}
-}
-
-.search-inner-wrapper:active {
-  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
-  transition: background .5s !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: light-dark(rgba(255, 255, 255, .9), rgba(54, 54, 58, .9)) !important;
-}
-}
 }
 
 .search-handoff-button {
@@ -546,24 +539,6 @@ body {
 }
 }
 
-.tile, .context-menu-button.icon {
-  background-color: rgba(255, 255, 255, .8) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #fff !important;
-}
-}
-}
-
-.context-menu-button.icon:active {
-  background-color: rgba(255, 255, 255, .6) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: rgba(255, 255, 255, .9) !important;
-}
-}
-}
-
 .context-menu-button {
   fill: #000 !important;
 }
@@ -602,16 +577,6 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
   border: none !important;
   transition: background .5s !important;
-}
-
-.tile:active {
-  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
-  transition: background .5s !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: light-dark(rgba(255, 255, 255, .9), rgba(54, 54, 58, .9)) !important;
-}
-}
 }
 
 .top-site-outer, .top-site-button,
@@ -702,8 +667,14 @@ body {
 }
 }
 
-.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .confirmation-dialog {
+.modalOverlayOuter, .contentSearchSuggestionTable, .confirmation-dialog {
   box-shadow: var(--bs1) !important;
+}
+
+@media -moz-pref("gwfox.blur") and (-moz-platform: macos) {
+.modal {
+  box-shadow: var(--bs1) !important;
+}  
 }
 
 .customize-menu {
@@ -753,9 +724,17 @@ body {
   width: 100% !important;
   height: 100% !important;
   inset-inline-start: 0 !important;
-  padding: 10px !important;
+  padding: 30px !important;
   transition: none !important;
   animation: .25s ease-in panel-grow;
+@media not (-moz-platform: linux) {
+@media -moz-pref("gwfox.blur") {
+  padding: 15px !important;
+}
+}
+@media (-moz-platform: linux) and -moz-pref("gwfox.bms") and -moz-pref("gwfox.blur") {
+  padding: 15px !important;
+}
 }
 
 .weatherCard, .weatherInfoLink, .personalize-button {
@@ -829,7 +808,14 @@ body {
 
 @media (prefers-color-scheme: dark) {
 @media not (-moz-platform: linux) {
-.modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
+@media -moz-pref("gwfox.blur") {
+.modal {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}  
+}
+.modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   box-shadow: var(--bs2) !important;
   outline: 1px solid rgba(235, 235, 235, .2) !important;
   outline-offset: -1.5px !important;
@@ -838,6 +824,9 @@ body {
 @media (-moz-platform: windows) {
 .modal, .modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu, .weatherButtonContextMenuWrapper > panel-list, .confirmation-dialog {
   outline: none !important;
+}
+.context-menu {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .15) !important;
 }
 }
 }
@@ -886,8 +875,11 @@ body {
   color-scheme: dark !important;
 }
 
-.lightWallpaper .tile {
+.lightWallpaper .tile, .lightWallpaper .context-menu-button.icon {
+  background-color: #141618 !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(15, 15, 15, .7) !important;
+}
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #36363a !important;
@@ -895,8 +887,11 @@ body {
 }
 }
 
-.lightWallpaper .tile:hover {
+.lightWallpaper .tile:hover, .lightWallpaper .context-menu-button.icon:hover {
+  background-color: #1e2022 !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(15, 15, 15, .75) !important;
+}
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #36363a !important;
@@ -904,35 +899,11 @@ body {
 }
 }
 
-.lightWallpaper .tile:active {
+.lightWallpaper .tile:active, .lightWallpaper .context-menu-button.icon:active {
+  background-color: #282a2c !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(15, 15, 15, .6) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #2c2c2f !important;
 }
-}
-}
-
-.lightWallpaper .context-menu-button.icon {
-  background-color: rgba(15, 15, 15, .7) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #36363a !important;
-}
-}
-}
-
-.lightWallpaper .context-menu-button.icon:hover {
-  background-color: rgba(15, 15, 15, .75) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #36363a !important;
-}
-}
-}
-
-.lightWallpaper .context-menu-button.icon:active {
-  background-color: rgba(15, 15, 15, .6) !important;
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #2c2c2f !important;
@@ -946,8 +917,11 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-.darkWallpaper .tile {
+.darkWallpaper .tile, .darkWallpaper .context-menu-button.icon {
+  background-color: #fff !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(255, 255, 255, .7) !important;
+}
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #fff !important;
@@ -955,8 +929,11 @@ body {
 }
 }
 
-.darkWallpaper .tile:hover {
+.darkWallpaper .tile:hover, .darkWallpaper .context-menu-button.icon:hover {
+  background-color: #fafafa !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(255, 255, 255, .75) !important;
+}
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #fff !important;
@@ -964,39 +941,14 @@ body {
 }
 }
 
-.darkWallpaper .tile:active {
+.darkWallpaper .tile:active, .darkWallpaper .context-menu-button.icon:active {
+  background-color: #f5f5f5 !important;
+@media -moz-pref("gwfox.blur") {
   background-color: rgba(255, 255, 255, .6) !important;
+}
 @media (-moz-platform: linux) {
 @media not -moz-pref("gwfox.bms") {
   background-color: #f5f5f5 !important;
-}
-}
-}
-
-.darkWallpaper .context-menu-button.icon {
-  background-color: rgba(255, 255, 255, .7) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #fff !important;
-}
-}
-}
-
-.darkWallpaper .context-menu-button.icon:hover {
-  background-color: rgba(255, 255, 255, .75) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #fff !important;
-}
-}
-}
-
-.darkWallpaper .context-menu-button.icon:active {
-  background-color: rgba(255, 255, 255, .6) !important;
-@media (-moz-platform: linux) {
-@media not -moz-pref("gwfox.bms") {
-  background-color: #f5f5f5 !important;
-}
 }
 }
 }
