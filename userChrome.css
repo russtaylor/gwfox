@@ -1142,6 +1142,7 @@ tab-group > .tabbrowser-tab,
 }
 &[selected] {
   background: light-dark(rgba(70, 70, 70, .18), rgba(170, 170, 170, .4)) !important;
+  outline: 1px solid rgba(235, 235, 235, .8) !important;
 }
 &[multiselected] {
   background: color-mix(in srgb, var(--bg0) 36%, transparent) !important;
