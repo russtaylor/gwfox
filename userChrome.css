@@ -1351,13 +1351,10 @@ tab-split-view-wrapper & {
 }
 
 .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
-  height: 5px !important;
-  width: 5px !important;
-  margin: 0 !important;
-  border-radius: 5px !important;
-#tabbrowser-tabs[orient="vertical"] & {
-  order: 1;
-}
+  min-height: 18px !important;
+  max-width: 2px !important;
+  margin: 6px 0 6px 0 !important;
+  border-radius: 2px !important;
 }
 
 .tabbrowser-tab:active:not(:has(.tab-icon-overlay:active, .tab-audio-button:active, .tab-close-button:active)) {
