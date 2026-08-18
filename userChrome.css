@@ -1169,9 +1169,9 @@ tab-split-view-wrapper & {
 }
 }
 tab-group:not([collapsed]) > tab > .tab-stack > & {
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 18%, transparent) !important;
+  background-color: color-mix(in srgb, var(--tab-group-color) 18%, transparent) !important;
 .tabbrowser-tab:not([selected], [multiselected]):hover & {
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
+  background-color: color-mix(in srgb, var(--tab-group-color) 24%, transparent) !important;
 }
 &[multiselected] {
   background: color-mix(in srgb, var(--bg0) 36%, transparent) !important;
@@ -1179,7 +1179,7 @@ tab-group:not([collapsed]) > tab > .tab-stack > & {
 }
 &[selected] {
 :is(tab-group:not([collapsed]) > tab, tab-group[collapsed] > .tabbrowser-tab[visuallyselected]) > .tab-stack > & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 26%, transparent) !important;
+  background: color-mix(in srgb, var(--tab-group-color) 26%, transparent) !important;
 }
 }
 @media -moz-pref("sidebar.verticalTabs") {
@@ -1431,13 +1431,13 @@ tab-group[collapsed][hasactivetab] > & {
   align-items: center;
   font-weight: normal !important;
   font-size: 13px !important;
-  color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+  color: var(--tab-group-color) !important;
   opacity: .9;
   outline: none !important;
   min-height: var(--tab-min-height) !important;
   padding-left: 31px !important;
   border-radius: var(--br2) !important;
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--tab-group-color) 30%, transparent) !important;
   background-image: url("chrome://global/skin/icons/arrow-down-12.svg");
   background-repeat: no-repeat;
   background-position: left 10px bottom 11px;
@@ -1648,13 +1648,13 @@ tab-split-view-wrapper & {
 }
 
 .tab-group-label {
-  color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+  color: var(--tab-group-color) !important;
   opacity: .9;
   outline: none !important;
   min-width: 5px !important;
   font-size: 11px !important;
   font-weight: normal !important;
-  background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--tab-group-color) 30%, transparent) !important;
 }
 
 .tab-group-label-container {
@@ -3259,6 +3259,20 @@ img[src="chrome://global/skin/icons/more.svg"] {
   background-color: var(--button-bgcolor) !important;
 @media (-moz-mac-tahoe-theme) {
   border-radius: var(--br3) !important;
+}
+/* Firefox 154+ "sidebar.revamp" rollout repaints #sidebar with its own
+   outline + rounded corners + var(--sidebar-background-color), instead of
+   leaving background/shape to #sidebar-box like the classic sidebar did.
+   Reassert transparency (already declared via --sidebar-background-color
+   at the top of this file) and drop the new outline/radius so the panel
+   blends with the rest of the chrome instead of reading as a mismatched
+   grey card. */
+@media -moz-pref("sidebar.revamp") {
+  background-color: var(--sidebar-background-color) !important;
+  outline: none !important;
+@media not (-moz-mac-tahoe-theme) {
+  border-radius: 0 !important;
+}
 }
 }
 
